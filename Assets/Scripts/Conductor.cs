@@ -13,6 +13,9 @@ public class Conductor : MonoBehaviour
     // The song's BPM
     public float songBpm;
     
+    // The number of beats per loop
+    public float beatsPerLoop;
+    
     // The offset to the first beat of the song in seconds
     public float firstBeatOffset;
     
@@ -28,6 +31,12 @@ public class Conductor : MonoBehaviour
     // Current song position in beats
     // Note: Starts at 0
     public float songPositionInBeats;
+
+    // The total number of loops completed since the looping clip first started
+    public float completedLoops = 0;
+
+    // The current position of hte song within the loop in beats
+    public float loopPositionInBeats;
     
     // Used to trigger OnBeat Event
     private float lastBeatPosition;
@@ -51,18 +60,36 @@ public class Conductor : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         songPosition = (float) (AudioSettings.dspTime - dspSongTime - firstBeatOffset);
         songPositionInBeats = songPosition / secPerBeat;
 
-        if (songPositionInBeats % 1f - lastBeatPosition < 0)
+        if (songPositionInBeats >= (completedLoops + 1) * beatsPerLoop)
+        {
+            completedLoops += 1;
+        }
+
+        loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;
+
+        if (loopPositionInBeats % 1f - lastBeatPosition < 0)
         {
             if (OnBeat != null)
             {
                 OnBeat();
             }
         }
-        lastBeatPosition = songPositionInBeats % 1f;
+        lastBeatPosition = loopPositionInBeats % 1f;
+    }
+
+    public float DistanceToNearestBeat()
+    {
+        float beatDistance = loopPositionInBeats % 1f;
+        if (beatDistance > 0.5f)
+        {
+            beatDistance -= 1;
+        }
+        float distance = beatDistance * secPerBeat;
+        return distance;
     }
 }

@@ -6,8 +6,8 @@ using UnityEngine;
 public class BeatIndicator : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
-    [SerializeField] private Color onColor;
-    [SerializeField] private Color offColor;
+    [SerializeField] private Color onColor = Color.red;
+    [SerializeField] private Color offColor = Color.blue;
     private bool isOn = false;
     private void Start()
     {
