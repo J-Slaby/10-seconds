@@ -417,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1486529401}
   - component: {fileID: 1486529400}
+  - component: {fileID: 1486529402}
   - component: {fileID: 1486529399}
   m_Layer: 0
   m_Name: Conductor
@@ -435,7 +436,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3cb750dd26230402c8c210ceeee3a71e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0a8e49ec4f8c9004098aad4fbd49a280, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -534,7 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 120
-  beatsPerLoop: 15.94
+  beatsPerLoop: 16
   firstBeatOffset: 0
   musicSource: {fileID: 1486529399}
   secPerBeat: 0
@@ -557,6 +558,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1486529402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486529398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439907b87c3b3214d8c4b64a74f24ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfLanes: 4
+  distanceBetweenLanes: 1
 --- !u!1 &1744985894
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,6 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conductor: {fileID: 1486529400}
+  laneManager: {fileID: 1486529402}
   leniency: 0.1
 --- !u!1 &2057123381
 GameObject:

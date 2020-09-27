@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Conductor conductor;
+    [SerializeField] private LaneManager laneManager;
     [SerializeField] private float leniency;
     
     private Vector2 movement;
+    private int currentLane = 2;
 
     private void Start()
     {
@@ -23,13 +25,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log(distance);
         if (Math.Abs(distance) <= leniency)
         {
-            transform.position += new Vector3(movement.x, movement.y);
+            currentLane += (int)movement.x;
         }
     }
 
     private void Update()
     {
-        // transform.position += new Vector3(movement.x, movement.y, 0);
+        float xPos = laneManager.GetPositionFromLane(currentLane);
+        transform.position = new Vector3(xPos, 0f);
     }
 
     private void _OnBeat()
