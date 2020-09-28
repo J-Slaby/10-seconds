@@ -570,8 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439907b87c3b3214d8c4b64a74f24ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfLanes: 4
-  distanceBetweenLanes: 1
+  numberOfLanes: 3
+  distanceBetweenLanes: 3
 --- !u!1 &1744985894
 GameObject:
   m_ObjectHideFlags: 0

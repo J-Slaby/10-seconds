@@ -26,6 +26,14 @@ public class PlayerController : MonoBehaviour
         if (Math.Abs(distance) <= leniency)
         {
             currentLane += (int)movement.x;
+            if (currentLane > laneManager.numberOfLanes)
+            {
+                currentLane = 1;
+            }
+            if (currentLane < 1)
+            {
+                currentLane = laneManager.numberOfLanes;
+            }
         }
     }
 
