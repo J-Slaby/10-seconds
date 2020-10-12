@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TimingIndicator : MonoBehaviour
 {
-    [SerializeField] private Conductor conductor;
     [SerializeField] private float leniency;
     private SpriteRenderer spriteRenderer;
 
@@ -16,7 +15,7 @@ public class TimingIndicator : MonoBehaviour
 
     private void Update()
     {
-        float distance = conductor.DistanceToNearestBeat();
+        float distance = Conductor.instance.DistanceToNearestBeat();
         if (Math.Abs(distance) <= leniency)
         {
             spriteRenderer.color = Color.green;

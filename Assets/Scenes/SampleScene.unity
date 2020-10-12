@@ -572,6 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfLanes: 3
   distanceBetweenLanes: 3
+  distanceBetweenRows: 1
 --- !u!1 &1744985894
 GameObject:
   m_ObjectHideFlags: 0
