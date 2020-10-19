@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = System.Random;
 
-public class Conductor : ScriptableSingleton<Conductor>
+public class Conductor : Singleton<Conductor>
 {
     // Adapted from https://www.gamasutra.com/blogs/GrahamTattersall/20190515/342454/Coding_to_the_Beat__Under_the_Hood_of_a_Rhythm_Game_in_Unity.php
     // This script should be attached to the GameObject that is playing the music

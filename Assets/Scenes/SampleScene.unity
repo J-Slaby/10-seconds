@@ -543,7 +543,6 @@ MonoBehaviour:
   songPositionInBeats: 0
   completedLoops: 0
   loopPositionInBeats: 0
-  lastBeatPosition: 0
   dspSongTime: 0
 --- !u!4 &1486529401
 Transform:
@@ -574,6 +573,7 @@ MonoBehaviour:
   numberOfLanes: 3
   distanceBetweenLanes: 3
   distanceBetweenRows: 1
+  offset: -0.75
 --- !u!1 &1744985894
 GameObject:
   m_ObjectHideFlags: 0

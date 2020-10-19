@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
         float yPos = LaneManager.instance.GetYPositionFromRow(row);
-        StartCoroutine(MoveSmoothly(new Vector3(transform.position.x, yPos, 0), 10));
+        StartCoroutine(MoveSmoothly(new Vector3(transform.position.x, yPos, 0), 3));
     }
 
     private void OnDestroy()
@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
         while (count <= numberOfFrames)
         {
             transform.position = Vector3.Lerp(oldPosition, newPosition, (float) count / numberOfFrames);
-            yield return null;
+            yield return new WaitForSecondsRealtime(.05f);
             count += 1;
         }
     }

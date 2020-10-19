@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class LaneManager : ScriptableSingleton<LaneManager>
+public class LaneManager : Singleton<LaneManager>
 {
     public int numberOfLanes = 3;
     [SerializeField] private float distanceBetweenLanes;
     [SerializeField] private float distanceBetweenRows;
+    [SerializeField] private float offset = -0.5f;
 
     public float GetXPositionFromLane(int lane)
     {
@@ -18,7 +19,7 @@ public class LaneManager : ScriptableSingleton<LaneManager>
 
     public float GetYPositionFromRow(int row)
     {
-        float position = row * distanceBetweenRows;
+        float position = row * distanceBetweenRows + offset;
         return position;
     }
 }
