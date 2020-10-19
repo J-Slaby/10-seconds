@@ -6,18 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class RestartScene : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
-
     public static void StartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    void Update()
-    {
-        
     }
 }
