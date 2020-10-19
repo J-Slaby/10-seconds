@@ -99,11 +99,16 @@ public class PlayerController : MonoBehaviour
         return 0;
     }
 
+    public void TakeDamage()
+    {
+        playerHealth -= 1;
+    }
+
     public void OnHit()
     {
         if (nextAction != PlayerActions.Parry)
         {
-            playerHealth -= 1;
+            TakeDamage();
         }
     }
 

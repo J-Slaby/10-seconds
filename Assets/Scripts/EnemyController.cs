@@ -25,8 +25,9 @@ public class EnemyController : MonoBehaviour
     private void _OnBeat()
     {
         row -= 1;
-        if (row < 0)
+        if (row == 0)
         {
+            player.TakeDamage();
             Destroy(gameObject);
         }
         float yPos = LaneManager.instance.GetYPositionFromRow(row);
