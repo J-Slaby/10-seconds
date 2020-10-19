@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     private PlayerActions nextAction;
     
     private Vector2 movement;
-    private int currentLane = 2;
+    public int currentLane = 2;
+    public int playerHealth = 3;
 
     private void Start()
     {
@@ -98,10 +99,22 @@ public class PlayerController : MonoBehaviour
         return 0;
     }
 
+    public void OnHit()
+    {
+        if (nextAction != PlayerActions.Parry)
+        {
+            playerHealth -= 1;
+        }
+    }
+
     private void Update()
     {
         float xPos = laneManager.GetXPositionFromLane(currentLane);
         transform.position = new Vector3(xPos, 0f);
+        if (playerHealth == 0)
+        {
+            RestartScene.StartScene();
+        }
     }
 
     private void _OnBeat()
