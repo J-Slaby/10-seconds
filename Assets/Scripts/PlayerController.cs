@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float xPos = laneManager.GetXPositionFromLane(currentLane);
+        float xPos = LaneManager.instance.GetXPositionFromLane(currentLane);
         transform.position = new Vector3(xPos, 0f);
         if (playerHealth == 0)
         {

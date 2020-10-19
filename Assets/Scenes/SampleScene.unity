@@ -538,12 +538,6 @@ MonoBehaviour:
   beatsPerLoop: 16
   firstBeatOffset: 0
   musicSource: {fileID: 1486529399}
-  secPerBeat: 0
-  songPosition: 0
-  songPositionInBeats: 0
-  completedLoops: 0
-  loopPositionInBeats: 0
-  dspSongTime: 0
 --- !u!4 &1486529401
 Transform:
   m_ObjectHideFlags: 0
@@ -702,6 +696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leniency: 0.12
   enemySpawner: {fileID: 1931340062}
+  currentLane: 2
+  playerHealth: 3
 --- !u!114 &1931340062 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 466211261418526987, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
@@ -867,6 +863,6 @@ PrefabInstance:
     - target: {fileID: 466211261418526987, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
       propertyPath: conductor
       value: 
-      objectReference: {fileID: 1486529400}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
