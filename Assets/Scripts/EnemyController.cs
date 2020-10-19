@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public int lane;
     [SerializeField] public int row;
     [SerializeField] private int startingRow;
+    private PlayerController player;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class EnemyController : MonoBehaviour
         float yPos = LaneManager.instance.GetYPositionFromRow(row);
         float xPos = LaneManager.instance.GetXPositionFromLane(lane);
         transform.position = new Vector3(xPos, yPos, 0);
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void _OnBeat()
@@ -29,6 +31,15 @@ public class EnemyController : MonoBehaviour
         }
         float yPos = LaneManager.instance.GetYPositionFromRow(row);
         StartCoroutine(MoveSmoothly(new Vector3(transform.position.x, yPos, 0), 10));
+        SwordAttack();
+    }
+
+    private void SwordAttack()
+    {
+        if (player.currentLane == lane && row == 1)
+        {
+            player.OnHit();
+        }
     }
 
     private void OnDestroy()

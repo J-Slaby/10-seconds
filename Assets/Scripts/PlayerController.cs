@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     private PlayerActions nextAction; // do things with this
     
     private Vector2 movement;
-    private int currentLane = 2;
+    public int currentLane = 2;
+    public int playerHealth = 3;
 
     private void Start()
     {
@@ -56,12 +57,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnParry()
     {
-        // do parry things
+        
+    }
+
+    public void OnHit()
+    {
+        if (nextAction != PlayerActions.Parry)
+        {
+            playerHealth -= 1;
+        }
+
     }
 
     private void Update()
     {
-        
+        if (playerHealth == 0)
+        {
+            RestartScene.StartScene();
+        }
     }
 
     private void _OnBeat()

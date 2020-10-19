@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 1744985898}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -699,9 +699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcee4e70f5714c1a8c48b95e1e652c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conductor: {fileID: 1486529400}
-  laneManager: {fileID: 1486529402}
   leniency: 0.12
+  enemySpawner: {fileID: 0}
 --- !u!1 &2057123381
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328b30df7e684f643bc0e1d4c3c05732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conductor: {fileID: 1486529400}
   leniency: 0.12
 --- !u!212 &2057123383
 SpriteRenderer:
