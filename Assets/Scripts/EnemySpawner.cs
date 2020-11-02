@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,5 +28,10 @@ public class EnemySpawner : MonoBehaviour
             Spawn(enemy);
         }
         beat++;
+    }
+
+    private void OnDestroy()
+    {
+        Conductor.OnBeat -= _OnBeat;
     }
 }

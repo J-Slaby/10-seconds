@@ -169,6 +169,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
+        Debug.Log("Attack " + Time.time);
         foreach (GameObject enemy in enemySpawner.enemies)
         {
             EnemyController controller = enemy.GetComponent<EnemyController>();
@@ -182,6 +183,11 @@ public class PlayerController : MonoBehaviour
     private void Parry()
     {
         
+    }
+
+    private void OnDestroy()
+    {
+        Conductor.OnBeat -= _OnBeat;
     }
 }
 

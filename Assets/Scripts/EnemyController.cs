@@ -46,8 +46,11 @@ public class EnemyController : MonoBehaviour
     private void OnDestroy()
     {
         Conductor.OnBeat -= _OnBeat;
-        EnemySpawner spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
-        spawner.enemies.Remove(gameObject);
+        GameObject spawner = GameObject.Find("EnemySpawner");
+        if (spawner != null)
+        {
+            spawner.GetComponent<EnemySpawner>().enemies.Remove(gameObject);
+        }
     }
 
     IEnumerator MoveSmoothly(Vector3 newPosition, int numberOfFrames)

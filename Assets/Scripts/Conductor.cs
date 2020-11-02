@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = System.Random;
 
-public class Conductor : Singleton<Conductor>
+public class Conductor : MonoBehaviour
 {
     // Adapted from https://www.gamasutra.com/blogs/GrahamTattersall/20190515/342454/Coding_to_the_Beat__Under_the_Hood_of_a_Rhythm_Game_in_Unity.php
     // This script should be attached to the GameObject that is playing the music
@@ -47,6 +47,11 @@ public class Conductor : Singleton<Conductor>
     public delegate void ComposerAction();
     public static event ComposerAction OnBeat;
 
+    public static Conductor instance
+    {
+        get => FindObjectOfType<Conductor>();
+    }
+
     private void Start()
     {
         musicSource = GameObject.Find("Conductor").GetComponent<AudioSource>();
@@ -60,7 +65,6 @@ public class Conductor : Singleton<Conductor>
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     private void FixedUpdate()

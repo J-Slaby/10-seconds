@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class LaneManager : Singleton<LaneManager>
+public class LaneManager : MonoBehaviour
 {
     public int numberOfLanes = 3;
     [SerializeField] private float distanceBetweenLanes;
     [SerializeField] private float distanceBetweenRows;
     [SerializeField] private float offset = -0.5f;
+
+    public static LaneManager instance
+    {
+        get => FindObjectOfType<LaneManager>();
+    }
 
     public float GetXPositionFromLane(int lane)
     {
