@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private EnemySpawner enemySpawner;
 
     private PlayerActions nextAction;
+    private Animator animator;
     
     private Vector2 movement;
     public int currentLane = 2;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         Conductor.OnBeat += _OnBeat;
         laneManager = LaneManager.instance;
+        animator = gameObject.GetComponent<Animator>();
     }
 
     public void OnMove(InputValue movementValue)
@@ -118,7 +121,7 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(xPos, 0f);
         if (playerHealth == 0)
         {
-            RestartScene.StartScene();
+            UIManager.instance.ShowDeathMenu();
         }
     }
 
@@ -169,12 +172,15 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
+        animator.SetTrigger("Attack");
         foreach (GameObject enemy in enemySpawner.enemies)
         {
             EnemyController controller = enemy.GetComponent<EnemyController>();
             if (controller.lane == currentLane && (controller.row == 1 || controller.row == 0))
             {
-                Destroy(enemy);
+                Destroy(enemy, 0.1f);
+                controller.animator.SetTrigger("Death");
+                UIManager.instance.UpdateScore(1);
             }
         }
     }

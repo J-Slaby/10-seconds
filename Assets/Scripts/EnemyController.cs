@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int startingRow;
     private PlayerController player;
 
+    public Animator animator;
+
     private void Start()
     {
         Conductor.OnBeat += _OnBeat;
@@ -20,6 +22,7 @@ public class EnemyController : MonoBehaviour
         float xPos = LaneManager.instance.GetXPositionFromLane(lane);
         transform.position = new Vector3(xPos, yPos, 0);
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void _OnBeat()
