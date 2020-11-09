@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnHit()
     {
-        if (nextAction != PlayerActions.Parry)
+        if (nextAction != PlayerActions.Parry && nextAction != PlayerActions.Attack)
         {
             TakeDamage();
         }
@@ -169,7 +169,6 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attack " + Time.time);
         foreach (GameObject enemy in enemySpawner.enemies)
         {
             EnemyController controller = enemy.GetComponent<EnemyController>();

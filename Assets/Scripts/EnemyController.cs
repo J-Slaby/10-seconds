@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
         }
         float yPos = LaneManager.instance.GetYPositionFromRow(row);
         StartCoroutine(MoveSmoothly(new Vector3(transform.position.x, yPos, 0), 3));
-        SwordAttack();
+        // SwordAttack();
     }
 
     private void SwordAttack()
