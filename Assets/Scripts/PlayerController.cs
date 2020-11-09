@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private LaneManager laneManager;
     [SerializeField] private float leniency;
     [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private GameObject soundPlayer;
+    [SerializeField] private AudioClip clip;
 
     private PlayerActions nextAction;
     private Animator animator;
@@ -178,6 +180,8 @@ public class PlayerController : MonoBehaviour
             EnemyController controller = enemy.GetComponent<EnemyController>();
             if (controller.lane == currentLane && (controller.row == 1 || controller.row == 0))
             {
+                //GameObject playerInstance = Instantiate(soundPlayer);
+                //playerInstance.GetComponent<SoundPlayer>().PlaySound(clip);
                 Destroy(enemy, 0.1f);
                 controller.animator.SetTrigger("Death");
                 UIManager.instance.UpdateScore(1);
