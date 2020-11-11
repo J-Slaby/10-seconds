@@ -984,7 +984,7 @@ MonoBehaviour:
   leniency: 0.12
   enemySpawner: {fileID: 1931340062}
   soundPlayer: {fileID: 1921899127411354242, guid: ad45962569f8d674e8f6b5d840470784, type: 3}
-  clip: {fileID: 8300000, guid: bcff170c667b35a4fa16af3fb1c15750, type: 3}
+  slashClip: {fileID: 8300000, guid: bcff170c667b35a4fa16af3fb1c15750, type: 3}
   currentLane: 2
   playerHealth: 3
 --- !u!95 &1744985899
