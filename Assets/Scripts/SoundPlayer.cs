@@ -4,20 +4,8 @@ using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
 {
+    private AudioSource source;
     private bool started = false;
-    private AudioSource source = null;
-
-    public void PlaySound(AudioClip clip)
-    {
-        source.clip = clip;
-        source.Play();
-        started = true;
-    }
-
-    private void Start()
-    {
-        source = GetComponent<AudioSource>();
-    }
 
     private void Update()
     {
@@ -25,5 +13,13 @@ public class SoundPlayer : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    
+    public void PlaySound(AudioClip sourceClip)
+    {
+        source = GetComponent<AudioSource>();
+        source.clip = sourceClip;
+        source.Play();
+        started = true;
     }
 }

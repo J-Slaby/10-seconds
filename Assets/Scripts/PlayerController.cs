@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float leniency;
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private GameObject soundPlayer;
-    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioClip slashClip;
 
     private PlayerActions nextAction;
     private Animator animator;
@@ -180,8 +181,8 @@ public class PlayerController : MonoBehaviour
             EnemyController controller = enemy.GetComponent<EnemyController>();
             if (controller.lane == currentLane && (controller.row == 1 || controller.row == 0))
             {
-                //GameObject playerInstance = Instantiate(soundPlayer);
-                //playerInstance.GetComponent<SoundPlayer>().PlaySound(clip);
+                GameObject playerInstance = Instantiate(soundPlayer);
+                playerInstance.GetComponent<SoundPlayer>().PlaySound(slashClip);
                 Destroy(enemy, 0.1f);
                 controller.animator.SetTrigger("Death");
                 UIManager.instance.UpdateScore(1);
