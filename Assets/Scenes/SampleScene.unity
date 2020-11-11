@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 128
-  beatsPerLoop: 16
+  beatsPerLoop: 64
   firstBeatOffset: 0
   musicSource: {fileID: 1486529399}
 --- !u!4 &1486529401
