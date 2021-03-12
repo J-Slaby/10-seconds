@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LaneManager : MonoBehaviour
 {
-    public int numberOfLanes = 3;
+    public int numberOfLanes = 5;
     [SerializeField] private float distanceBetweenLanes;
     [SerializeField] private float distanceBetweenRows;
     [SerializeField] private float offset = -0.5f;

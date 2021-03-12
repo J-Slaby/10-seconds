@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemy = null;
+    
     private int beat = 0;
     
     public List<GameObject> enemies;
