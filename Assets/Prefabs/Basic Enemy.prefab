@@ -47,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lane: 0
   row: 0
-  startingRow: 9
+  startingRow: 8
+  animator: {fileID: 0}
 --- !u!212 &6361691886681887312
 SpriteRenderer:
   m_ObjectHideFlags: 0

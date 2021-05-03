@@ -107,7 +107,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        playerHealth -= 1;
+        //playerHealth -= 1;
+        UIManager.instance.decrement();
     }
 
     public void OnHit()
@@ -115,6 +116,17 @@ public class PlayerController : MonoBehaviour
         if (nextAction != PlayerActions.Parry && nextAction != PlayerActions.Attack)
         {
             TakeDamage();
+        }
+        else
+        {
+            if (nextAction == PlayerActions.Parry)
+            {
+                Debug.Log("Action was parry");
+            }
+            else if (nextAction == PlayerActions.Attack)
+            {
+                Debug.Log("Action was attack");
+            }
         }
     }
 
@@ -130,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
     private void _OnBeat()
     {
+        //Debug.Log("Called player on beat");
         switch (nextAction)
         {
             case PlayerActions.Attack:

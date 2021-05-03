@@ -75,6 +75,8 @@ public class Conductor : MonoBehaviour
         if (songPositionInBeats >= (completedLoops + 1) * beatsPerLoop)
         {
             completedLoops += 1;
+            //Definitely fix this
+            Application.Quit();
         }
 
         loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;

@@ -32,4 +32,16 @@ public class UIManager : MonoBehaviour
     {
         RestartScene.StartScene();
     }
+
+    public void decrement()
+    {
+        score--;
+
+        if (score < 0)
+        {
+            score = 0;
+        }
+
+        scoreText.text = "Score: " + score;
+    }
 }

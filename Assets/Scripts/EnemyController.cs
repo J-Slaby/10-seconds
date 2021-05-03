@@ -10,23 +10,32 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public int row;
     [SerializeField] private int startingRow;
     private PlayerController player;
+    float xPos, yPos;
 
     public Animator animator;
 
     private void Start()
     {
         Conductor.OnBeat += _OnBeat;
-        lane = Random.Range(1, 4);
+        //lane = Random.Range(1, 4);
         row = startingRow;
-        float yPos = LaneManager.instance.GetYPositionFromRow(row);
-        float xPos = LaneManager.instance.GetXPositionFromLane(lane);
+        xPos = LaneManager.instance.GetXPositionFromLane(lane);
+        yPos = LaneManager.instance.GetYPositionFromRow(row);
         transform.position = new Vector3(xPos, yPos, 0);
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         animator = gameObject.GetComponent<Animator>();
     }
 
+    public void setLanePosition(int l)
+    {
+        lane = l;
+        xPos = LaneManager.instance.GetXPositionFromLane(lane);
+        transform.position = new Vector3(xPos, yPos, 0);
+    }
+
     private void _OnBeat()
     {
+        Debug.Log("Called enemy controller on beat");
         row -= 1;
         if (row == 0)
         {

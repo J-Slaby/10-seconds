@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 1486529400}
   - component: {fileID: 1486529402}
   - component: {fileID: 1486529399}
+  - component: {fileID: 1486529403}
   m_Layer: 0
   m_Name: Conductor
   m_TagString: Untagged
@@ -722,7 +723,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 232d76663a22e504ba77a66c75b05ffc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: efadc80935bc50f44b3b861d6d4b28a7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -821,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 128
-  beatsPerLoop: 64
+  beatsPerLoop: 288
   firstBeatOffset: 0
   musicSource: {fileID: 1486529399}
 --- !u!4 &1486529401
@@ -854,6 +855,18 @@ MonoBehaviour:
   distanceBetweenLanes: 3
   distanceBetweenRows: 1
   offset: -0.75
+--- !u!114 &1486529403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486529398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2e923daeda8ef4d949a11294145aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1744985894
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +997,7 @@ MonoBehaviour:
   leniency: 0.12
   enemySpawner: {fileID: 1931340062}
   soundPlayer: {fileID: 1921899127411354242, guid: ad45962569f8d674e8f6b5d840470784, type: 3}
-  slashClip: {fileID: 8300000, guid: bcff170c667b35a4fa16af3fb1c15750, type: 3}
+  slashClip: {fileID: 8300000, guid: 5a90f4d41298cef46ae7047155b4be25, type: 3}
   currentLane: 2
   playerHealth: 3
 --- !u!95 &1744985899
@@ -1244,6 +1257,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1597521279d99c543b016d19423f8f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1947307070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1947307071}
+  - component: {fileID: 1947307073}
+  - component: {fileID: 1947307072}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1947307071
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947307070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2094177038}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -576, y: 215}
+  m_SizeDelta: {x: 372.7803, y: 412.02597}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1947307072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947307070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.15
+  m_Text: "Controls:\nLeft & Right Arrow to Move\nX to Attack\n\nYou can only move
+    and attack on beat. \nTry to get the highest score you can.\nGood luck!"
+--- !u!222 &1947307073
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947307070}
+  m_CullTransparentMesh: 0
 --- !u!1 &2094177034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1352,7 @@ GameObject:
   - component: {fileID: 2094177039}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: UIManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1337,6 +1430,7 @@ RectTransform:
   m_Children:
   - {fileID: 545907475}
   - {fileID: 734778837}
+  - {fileID: 1947307071}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1376,7 +1470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 466211261418526986, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 466211261418526986, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1418,5 +1512,13 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 466211261418526987, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
+      propertyPath: chartFileLocation
+      value: Assets/Charts/Sample - Integer.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 466211261418526987, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
+      propertyPath: chartReaderObj
+      value: 
+      objectReference: {fileID: 1486529398}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ba38950ad974d4e9926a8e0ad40cc9, type: 3}
